@@ -64,7 +64,7 @@ class _login_bodyState extends State<login_body> {
                     },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Enter User Name",
+                        hintText: "Enter Username",
                         label: Text("Username"),
                         prefixIcon: Icon(Icons.person),
                         counterText: ""),
