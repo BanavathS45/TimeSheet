@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "email": "Prashanth.gmail@reqres.in",
+      "first_name": "Prashanth",
+      "last_name": "Banavath",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg"
+    },
+    {
+      "id": 2,
+      "email": "emma.wong@reqres.in",
+      "first_name": "Emma",
+      "last_name": "Wong",
+      "avatar": "https://reqres.in/img/faces/3-image.jpg"
+    }
+  ]
+}
