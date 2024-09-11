@@ -2,10 +2,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_app/loginScreen/DashBoard.dart';
+import 'package:flutter_basic_app/staticData/about.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class login_body extends StatefulWidget {
   String? email;
   String? name;
+  static const url = 'https://www.google.com';
+
+  void _launchURL() async {
+    final Uri url = Uri.parse('https://www.google.com');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   login_body({this.email = "NA", this.name = "NA"});
   @override
@@ -14,6 +27,7 @@ class login_body extends StatefulWidget {
 
 class _login_bodyState extends State<login_body> {
   final _formKey = GlobalKey<FormState>();
+
   final _usernameController = TextEditingController();
   bool visibilityPassword = true;
   final _passwordController = TextEditingController();
@@ -21,13 +35,16 @@ class _login_bodyState extends State<login_body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Login"),
           backgroundColor: Colors.teal,
           foregroundColor: Colors.white,
           centerTitle: true,
+          actions: [
+            IconButton(onPressed: widget._launchURL, icon: Icon(Icons.help))
+          ],
         ),
         body: Container(
           decoration: BoxDecoration(),
@@ -133,13 +150,12 @@ class _login_bodyState extends State<login_body> {
                           onPressed: () {
                             // if (_formKey.currentState!.validate()) {
                             // Perform login functionality
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (ctx) => login_body(),
-                            //   ),
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                DashBorad.routeName, (route) => false,
+                                arguments: _usernameController.text);
                             // );
                             // }
-                            Navigator.pushNamed(context, "/dashboard");
+                            // Navigator.pushNamed(context, "/dashboard");
                           },
                           child: Text('Login'.toUpperCase()),
                           backgroundColor: Colors.teal,

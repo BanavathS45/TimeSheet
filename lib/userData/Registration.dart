@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'dart:ui';
+ 
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,11 +7,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+ 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_basic_app/screens/LoginScreen/components/login_body.dart';
+ 
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -295,11 +295,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         width: 120,
                         child: FloatingActionButton(
                           onPressed: () {
-                            nameTextEditingController.clear();
-                            emailTextEditingController.clear();
-                            passwordTextEditingController.clear();
-                            CpasswordTextEditingController.clear();
-                            _formKey.currentState?.reset();
+                            setState(() {
+                              nameTextEditingController.clear();
+                              emailTextEditingController.clear();
+                              passwordTextEditingController.clear();
+                              CpasswordTextEditingController.clear();
+                              _formKey.currentState?.reset();
+                            });
                           },
                           child: Text(
                             "Clear".toUpperCase(),

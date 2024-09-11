@@ -13,12 +13,15 @@ var onGenerateRoute = (RouteSettings settings) {
       return MaterialPageRoute(builder: (builder) => login_body());
     case "/dashboard":
       return MaterialPageRoute(
-          builder: (builder) => DashBorad(message: "Your custom message"));
+          builder: (builder) => DashBorad(
+                message: settings.arguments.toString(),
+              ));
     case "/signup":
       return MaterialPageRoute(builder: (builder) => RegistrationScreen());
     case "/forgetPassword":
       return MaterialPageRoute(builder: (builder) => ForgetPassword());
+
     default:
   }
 };
-// SignUp forgetPassword
+// SignUp forgetPassword /dashboard

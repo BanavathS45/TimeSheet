@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_app/CURD/company_screen.dart';
+ 
 import 'package:flutter_basic_app/Navigations/onGenerateRouts.dart';
-import 'package:flutter_basic_app/loginScreen/DashBoard.dart';
-import 'package:flutter_basic_app/userData/Registration.dart';
-import 'package:flutter_basic_app/userData/userScreen.dart';
-import 'package:flutter_basic_app/userData/Counter.dart';
+ 
 
 void main() {
   runApp(const MyApp());

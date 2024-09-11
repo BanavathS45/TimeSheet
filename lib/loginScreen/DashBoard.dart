@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_app/TimeSheet.dart.dart';
+import 'package:flutter_basic_app/staticData/about.dart';
 
 class DashBorad extends StatefulWidget {
-  final String message;
-
+  String message;
+  static const String routeName = "/dashboard";
   // Constructor to accept the message
-  DashBorad({required this.message});
+  DashBorad({this.message = ""});
   @override
   State<DashBorad> createState() => _DashBoradState();
 }
@@ -32,7 +34,7 @@ class _DashBoradState extends State<DashBorad> {
                 width: double.infinity,
                 height: 300,
                 // color: Colors.limeAccent.withOpacity(0.7), // Optional overlay
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
@@ -43,7 +45,7 @@ class _DashBoradState extends State<DashBorad> {
                           backgroundImage: AssetImage('assets/basic.png'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Column(
                             children: [
                               Text(
@@ -71,7 +73,7 @@ class _DashBoradState extends State<DashBorad> {
                     ),
                     SizedBox(height: 5),
                     Text(
-                      "widget.message,",
+                      widget.message, // Updated to use widget.message
                       style: TextStyle(fontSize: 16, color: Colors.deepPurple),
                     ),
                   ],
@@ -90,7 +92,12 @@ class _DashBoradState extends State<DashBorad> {
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            // Add your onPressed code here!
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EmployeeDashboard(),
+                                ));
+                            // );// Add your onPressed code here!
                           },
                           icon: Icon(Icons.home),
                           label: Text('Patient Login'),
@@ -157,6 +164,9 @@ class _DashBoradState extends State<DashBorad> {
                               ),
                             ),
                           ),
+                          IconButton(onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>About()));
+                          }, icon: Icon(Icons.home))
                         ],
                       ),
                     ),
