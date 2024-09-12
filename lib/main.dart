@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
         //   '/': (context) => RegistrationScreen(),
         //   '/Counter': (context) => Counter()
         // },
-        onGenerateRoute: onGenerateRoute);
+        onGenerateRoute: onGenerateRoute
+        
+        );
   }
 }
 

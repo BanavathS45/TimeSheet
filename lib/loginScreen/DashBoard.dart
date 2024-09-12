@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_app/SureLogin.dart';
 import 'package:flutter_basic_app/TimeSheet.dart.dart';
 import 'package:flutter_basic_app/staticData/about.dart';
 
@@ -123,7 +124,11 @@ class _DashBoradState extends State<DashBorad> {
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            // Add your onPressed code here!
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) =>
+                                        SureLogin())); // Add your onPressed code here!
                           },
                           icon: Icon(Icons.health_and_safety),
                           label: Text('Doctor Login'),
@@ -164,9 +169,14 @@ class _DashBoradState extends State<DashBorad> {
                               ),
                             ),
                           ),
-                          IconButton(onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>About()));
-                          }, icon: Icon(Icons.home))
+                          IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (ctx) => About()));
+                              },
+                              icon: Icon(Icons.home))
                         ],
                       ),
                     ),

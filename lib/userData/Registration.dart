@@ -1,5 +1,4 @@
 import 'dart:io';
- 
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,11 +6,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
- 
+
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
- 
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -29,6 +27,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   bool isEmailValid = false;
 
   var _formKey = GlobalKey<FormState>();
+
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
@@ -329,6 +328,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             //       name: nameTextEditingController.text,
                             //     ),
                             //   ),
+                            // if (_formKey.currentState!.validate()) {
                             Navigator.pushNamed(context, "/loginBody");
                             Fluttertoast.showToast(
                                 msg: "SignUp Successfully...!");
@@ -337,6 +337,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             //   print("Data Added....!");
                             // } else {
                             //   print("Data Not Added...!");
+                            // }
                             // }
                           },
                           child: Text(
