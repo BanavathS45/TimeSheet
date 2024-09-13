@@ -21,18 +21,19 @@ class _EmployeeDashboardState extends State<EmployeeDashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 20, // Adjust the radius to fit within the AppBar
-            backgroundImage: CachedNetworkImageProvider(
-              'https://th.bing.com/th/id/R.f06c5ea4f00a9797aae3ce14cbdf338c?rik=foJZvbQpfQFEbA&riu=http%3a%2f%2fpearl.org.in%2fwp-content%2fuploads%2f2012%2f12%2fPearl-in-shell_square_pearl.org_.in_.jpg&ehk=n4OHChfH2SN4qbubjao7a1G6uf9m0zTB4qboX555wew%3d&risl=&pid=ImgRaw&r=0',
-            ),
-          ),
+          // child: CircleAvatar(
+          //   radius: 20, // Adjust the radius to fit within the AppBar
+          //   backgroundImage: CachedNetworkImageProvider(
+          //     'https://th.bing.com/th/id/R.f06c5ea4f00a9797aae3ce14cbdf338c?rik=foJZvbQpfQFEbA&riu=http%3a%2f%2fpearl.org.in%2fwp-content%2fuploads%2f2012%2f12%2fPearl-in-shell_square_pearl.org_.in_.jpg&ehk=n4OHChfH2SN4qbubjao7a1G6uf9m0zTB4qboX555wew%3d&risl=&pid=ImgRaw&r=0',
+          //   ),
+          // ),
         ),
-        title: Text('Timesheet System'),
       ),
       drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -40,70 +41,26 @@ class _EmployeeDashboardState extends State<EmployeeDashboard> {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  SizedBox(height: 20),
-                  Text(
-                    'Employee Management',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
             ),
             ListTile(
-              leading: Icon(MdiIcons.account),
-              title: const Text('Employee Details'),
+              title: Text('Item 1'),
               onTap: () {
-                // Navigator.pop(context);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => EmployeeManagement(),
-                //   ),
-                // );
+                // Update the state of the app
+                Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(MdiIcons.clock),
-              title: const Text('Timesheet Management'),
+              title: Text('Item 2'),
               onTap: () {
+                // Update the state of the app
                 Navigator.pop(context);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const TimesheetManagement(),
-                //   ),
-                // );
-              },
-            ),
-            ListTile(
-              leading: Icon(MdiIcons.calendar),
-              title: const Text('Leave Management'),
-              onTap: () {
-                Navigator.pop(context);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const LeaveManagement(),
-                //   ),
-                // );
-              },
-            ),
-            ListTile(
-              leading: Icon(MdiIcons.briefcase),
-              title: const Text('Project Management'),
-              onTap: () {
-                Navigator.pop(context);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ProjectManagement(),
-                //   ),
-                // );
               },
             ),
           ],

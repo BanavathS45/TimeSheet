@@ -374,7 +374,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     // Navigate to the registration page
-                                    Navigator.pushNamed(context, '/loginBody');
+                                    Navigator.pushNamed(
+                                        context, '/listViewWidget');
                                   },
                               ),
                             ],
