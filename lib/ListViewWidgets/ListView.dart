@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_app/Instagram.dart';
+import 'package:flutter_basic_app/ListViewWidgets/Carousal.dart';
 import 'package:flutter_basic_app/ListViewWidgets/GridView.dart';
 import 'package:flutter_basic_app/ListViewWidgets/LIstViewDetails.dart';
 import 'package:flutter_basic_app/ListViewWidgets/ListTile.dart';
 
 class ListViewWidget extends StatelessWidget {
   final List<String> frameWorksList =
-      List.generate(10, (index) => 'Item $index');
+      List.generate(5, (index) => 'Item $index');
+  List<String> titles = [
+    "Frameworks_Tiles",
+    "Taps",
+    "grid",
+    "CarousalScreen",
+    "Instagram",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +24,8 @@ class ListViewWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           return myContainer(
             bgColor: Colors.blue,
-            titles: "Prashanth_${index}",
+            // titles:List<String>.generate(titles.length,(i)=>titles[i]),
+            titles: titles[index],
             onButtonPressed: () => _handleButtonPressed(context, index),
           );
         },
@@ -58,17 +68,40 @@ class ListViewWidget extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ListViewDeatils(),
+                        builder: (context) => taps(),
                       ),
                     );
- 
+
                     break;
+
                   case 2:
                     Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => GridViews(),
+                      ),
+                    );
+
+                    // GridView
+                    break;
+                  case 3:
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CarousalScreen(),
+                      ),
+                    );
+
+                    // GridView
+                    break;
+                  case 4:
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => InstagramScreen(),
                       ),
                     );
 

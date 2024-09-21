@@ -40,7 +40,7 @@ class _ListViewTileState extends State<ListViewTile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ListViewDeatils(
+                      builder: (context) => taps(
                           title: frameWorksList[index],
                           imgLogo: imgUrl[index])));
             },
