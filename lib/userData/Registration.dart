@@ -11,6 +11,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../SurecareLogin/BaseUrl.dart';
+
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
 
@@ -37,6 +39,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       "https://photoexpress.in/labdata/photoexpressin/assets/testimonial/1710322444926.png";
 
   XFile? pickedImageFile;
+
+  @override
+  void initState() {
+    // if (widget.company != null) {
+    //   _nameController.text = widget.company!.companyName!;
+    //   _addressController.text = widget.company!.companyAddress!;
+    //   _phoneController.text = widget.company!.companyNumber!;
+    // }
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -300,6 +313,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               passwordTextEditingController.clear();
                               CpasswordTextEditingController.clear();
                               _formKey.currentState?.reset();
+                              AllApiCalls apiCalls = AllApiCalls();
+                              apiCalls.signupPatient();
                             });
                           },
                           child: Text(
@@ -329,10 +344,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             //     ),
                             //   ),
                             // if (_formKey.currentState!.validate()) {
+                            AllApiCalls postData = AllApiCalls(
+                              name: nameTextEditingController.text,
+                              email: emailTextEditingController.text,
+                              password: passwordTextEditingController.text,
+                            );
+
+                            postData.postPatient(postData);
+
                             Navigator.pushNamed(context, "/loginBody");
                             Fluttertoast.showToast(
                                 msg: "SignUp Successfully...!");
-                            print("You clicked loginBody");
+                            print("You clicked loginBody${postData}");
                             // );
                             //   print("Data Added....!");
                             // } else {

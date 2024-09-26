@@ -86,14 +86,19 @@ class _CreateCompanyState extends State<CreateCompany> {
                             companyName: _nameController.text,
                             companyAddress: _addressController.text,
                             companyNumber: _phoneController.text,
-                            companyLogo:
-                                "https://logo.clearbit.com/godaddy.com");
+                            companyLogo:"https://logo.clearbit.com/godaddy.com");
 
                         if (widget.company != null) {
                           await CompanyService()
                               .updateCompany(newCompany, widget.company!.id!);
+                              setState(() {
+                                
+                              });
                         } else {
+                          setState(()async {
                           await CompanyService().createCompany(newCompany);
+                            
+                          });
                         }
 
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

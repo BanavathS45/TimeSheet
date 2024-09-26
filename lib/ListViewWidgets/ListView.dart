@@ -4,16 +4,26 @@ import 'package:flutter_basic_app/ListViewWidgets/Carousal.dart';
 import 'package:flutter_basic_app/ListViewWidgets/GridView.dart';
 import 'package:flutter_basic_app/ListViewWidgets/LIstViewDetails.dart';
 import 'package:flutter_basic_app/ListViewWidgets/ListTile.dart';
+import 'package:flutter_basic_app/ListViewWidgets/UserData.dart';
+
+import '../CURD/company_screen.dart';
+import '../SurecareLogin/showData.dart';
 
 class ListViewWidget extends StatelessWidget {
   final List<String> frameWorksList =
-      List.generate(5, (index) => 'Item $index');
+      List.generate(10, (index) => 'Item $index');
   List<String> titles = [
     "Frameworks_Tiles",
     "Taps",
     "grid",
     "CarousalScreen",
     "Instagram",
+    "GetUserData",
+    "ShowApiData",
+    "UserData",
+    "Empty",
+    "Empty",
+    "Empty",
   ];
 
   @override
@@ -107,6 +117,41 @@ class ListViewWidget extends StatelessWidget {
 
                     // GridView
                     break;
+                  case 5:
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CompanyScreen(),
+                      ),
+                    );
+
+                    // GridView
+                    break;
+                  case 6:
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PatientListScreen(),
+                      ),
+                    );
+
+                    // GridView
+                    break;
+                  case 7:
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserData(),
+                      ),
+                    );
+
+                    // GridView
+                    break;
+
+                  // PatientListScreen
                   default:
                     Navigator.pop(context);
                 }

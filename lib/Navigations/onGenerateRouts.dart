@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_app/CURD/company_screen.dart';
 import 'package:flutter_basic_app/Drawer.dart';
 import 'package:flutter_basic_app/ListViewWidgets/ListView.dart';
 import 'package:flutter_basic_app/SurecareLogin/LoginS.dart';
@@ -13,6 +14,7 @@ var onGenerateRoute = (RouteSettings settings) {
   switch (settings.name) {
     case "/":
       return MaterialPageRoute(builder: (builder) => RegistrationScreen());
+      // return MaterialPageRoute(builder: (builder) => CompanyScreen());
     // return MaterialPageRoute(builder: (builder) => TimeSheetLogin());
     case "/listViewWidget":
       return MaterialPageRoute(builder: (builder) => ListViewWidget());
@@ -30,6 +32,9 @@ var onGenerateRoute = (RouteSettings settings) {
 
     case "/providerlogin":
       return MaterialPageRoute(builder: (builder) => DrawerScreen());
+       case "/companyScreen":
+           return MaterialPageRoute(builder: (builder) => CompanyScreen());
+
 
     default:
   }

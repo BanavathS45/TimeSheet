@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_app/CURD/company_model.dart';
 import 'package:flutter_basic_app/CURD/compnay_services.dart';
 import 'package:flutter_basic_app/CURD/createCompany.dart';
 
 class CompanyScreen extends StatefulWidget {
-  const CompanyScreen({super.key});
+  dynamic _selectedCompany;
+  CompanyScreen({super.key});
 
   @override
   State<CompanyScreen> createState() => _CompanyScreenState();
@@ -93,6 +93,7 @@ class _CompanyScreenState extends State<CompanyScreen> {
                                                             company:
                                                                 data[index],
                                                           )));
+                                              setState(() {});
                                             },
                                             icon: Icon(
                                               Icons.edit,
@@ -110,17 +111,23 @@ class _CompanyScreenState extends State<CompanyScreen> {
                                                         ElevatedButton(
                                                             onPressed:
                                                                 () async {
+                                                              setState(() {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              });
                                                               await CompanyService()
                                                                   .deleteCompany(
                                                                       data[index]
                                                                           .id!);
-                                                              Navigator.pop(
-                                                                  context);
-                                                              setState(() {});
                                                             },
                                                             child: Text("Yes")),
                                                         ElevatedButton(
-                                                            onPressed: () {},
+                                                            onPressed: () {
+                                                              setState(() {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              });
+                                                            },
                                                             child: Text("NO")),
                                                       ],
                                                     );
@@ -132,12 +139,12 @@ class _CompanyScreenState extends State<CompanyScreen> {
                                             )),
                                         IconButton(
                                             onPressed: () async {
-                                              await CompanyService()
-                                                  .updateCompanyPartially(
-                                                      {'name': "Flutter Hero"},
-                                                      data[index].id!);
-
-                                              setState(() {});
+                                              setState(() async {
+                                                await CompanyService()
+                                                    .updateCompanyPartially(
+                                                        {'name': data[index]},
+                                                        data[index].id!);
+                                              });
                                             },
                                             icon: Icon(Icons.favorite_outline))
                                       ],
